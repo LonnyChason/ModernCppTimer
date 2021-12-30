@@ -3,7 +3,7 @@
 
 int main()
 {
-	Timer t;
+	ModernCppTimer t;
 	t.start(5 * 1000, []
 	{
 		std::cout << "Hello World!\n";
