@@ -32,14 +32,12 @@ public:
 
 		m_future = std::async(std::launch::async, [this, interval, task]()
 		{
-			while (true)
+			while (!m_stop)
 			{
 				std::unique_lock<std::mutex> lock(m_mutex);
 				const auto status = m_cv.wait_for(lock, std::chrono::milliseconds(interval));
 				if(status == std::cv_status::timeout)
 					task();
-				else if(m_stop)
-					break;
 			}
 		});
 	}
