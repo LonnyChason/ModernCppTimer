@@ -14,10 +14,7 @@ public:
 	{
 	}
 
-	ModernCppTimer(const ModernCppTimer& timer)
-	{
-		m_stop = timer.m_stop;
-	}
+	ModernCppTimer(const ModernCppTimer& timer) = delete;
 
 	~ModernCppTimer()
 	{
